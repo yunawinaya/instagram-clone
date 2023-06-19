@@ -26,7 +26,7 @@ export default function App() {
           <IconButton className="bi bi-plus-square" />
           <Image
             src={PROFILE_DATA.image}
-            style={{ marginBottom: "7px", height: "30px" }}
+            style={{ marginTop: "7px", height: "30px" }}
             roundedCircle
           />
           <IconButton className="bi bi-list" isBottom />
