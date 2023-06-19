@@ -10,7 +10,7 @@ export const PROFILE_DATA = {
     🚨 Upskill yourself, learn to code
     👨‍💻 Develop full stack web & mobile apps
     🤝🏻 Build real world projects
-    💯 Free if you don’t land a tech job
+    💯 Free if you don't land a tech job
     `,
   link: "linktr.ee/joinsigma",
   posts: [
