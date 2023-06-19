@@ -1,8 +1,9 @@
-import { Col, Row } from "react-bootstrap";
+import { Col, Image, Row } from "react-bootstrap";
 import IconButton from "./components/IconButton";
 import ProfileHeader from "./components/ProfileHeader";
 import { createContext } from "react";
 import { PROFILE_DATA } from "./data";
+import ImageGrid from "./components/ImageGrid";
 
 export const ProfileContext = createContext(null);
 
@@ -23,11 +24,16 @@ export default function App() {
           <IconButton className="bi bi-chat" />
           <IconButton className="bi bi-heart" />
           <IconButton className="bi bi-plus-square" />
-          <IconButton className="bi bi-person-circle" />
+          <Image
+            src={PROFILE_DATA.image}
+            style={{ marginBottom: "7px", height: "30px" }}
+            roundedCircle
+          />
           <IconButton className="bi bi-list" isBottom />
         </Col>
         <Col sm={11}>
           <ProfileHeader />
+          <ImageGrid />
         </Col>
       </Row>
     </ProfileContext.Provider>
