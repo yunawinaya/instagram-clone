@@ -2,9 +2,12 @@ import { useState } from "react";
 import { useContext } from "react";
 import { ProfileContext } from "../App";
 import { Button, Col, Form, Image, Modal, Row } from "react-bootstrap";
+import { useDispatch } from "react-redux";
+import { createPost } from "../features/posts/postsSlice";
 
 export default function AddPostModal({ show, handleClose }) {
   const { image, name } = useContext(ProfileContext);
+  const dispatch = useDispatch();
 
   const [imageUrl, setImageUrl] = useState("");
   const [caption, setCaption] = useState("");
@@ -12,7 +15,8 @@ export default function AddPostModal({ show, handleClose }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (imageUrl === "") {
+    if (imageUrl) {
+      dispatch(createPost({ image: imageUrl, caption }));
       setImageUrl("");
       setCaption("");
       handleClose();
@@ -39,7 +43,7 @@ export default function AddPostModal({ show, handleClose }) {
           <Row>
             <Col sm={7} style={{ margin: `0px` }}>
               <Image
-                src={imageUrl ? imageUrl : "https://sig1.com/img-placeholder-1"}
+                src={imageUrl ? imageUrl : "https://sig1.co/img-placeholder-1"}
                 alt="uploaded content"
                 onError={handleImageError}
                 onLoad={handleImageLoad}
