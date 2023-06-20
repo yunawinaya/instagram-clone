@@ -27,7 +27,7 @@ const postsSlice = createSlice({
       const newPost = {
         id: Date.now(),
         image: action.payload.image,
-        description: action.payload.description,
+        description: action.payload.caption,
         date: new Date().toISOString(),
         likes: 0,
         comments: 0,
@@ -42,9 +42,13 @@ const postsSlice = createSlice({
       const index = state.findIndex((post) => post.id === action.payload.id);
       state.splice(index, 1);
     },
+    likePost: (state, action) => {
+      const index = state.findIndex((post) => post.id === action.payload.id);
+      state[index].likes++;
+    },
   },
 });
 
-export const { createPost, updatePost } = postsSlice.actions;
+export const { createPost, updatePost, deletePost } = postsSlice.actions;
 
 export default postsSlice.reducer;
